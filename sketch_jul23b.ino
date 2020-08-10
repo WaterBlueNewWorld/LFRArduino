@@ -56,25 +56,23 @@ void avanzar()
   intensidad = analogRead(luzPin);
   Serial.println(intensidad);
   
- //Comienzo del if
+
   if(intensidad > 800){
     Serial.println("Encendido");
   
     //If de distancia si es mayor a 10 cm e igual a 0
-    //0 representa que no se detecto objeto
+    
     if(sonar.ping_cm(MaxDistancia) > 10 || sonar.ping_cm(MaxDistancia) == 0 ){
-      //Ir hacia adelante
+      
       adelante ();
       Serial.println(sonar.ping_cm(MaxDistancia));
     }else{
         stop();
         delay(2000);
-        //Darse de reversa
+        
         reversa ();
       }
-    /*Testeo
-    inPin1 = HIGH;
-    inPin2 = LOW;*/
+   
   }else{
     stop();
    }
